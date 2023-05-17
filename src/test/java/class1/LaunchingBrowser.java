@@ -17,11 +17,9 @@ public class LaunchingBrowser {
         String title=driver.getTitle();
         System.out.println("The title of the website is: "+title);
         //ADDING TIME BEFORE CLOSING IT
-        Thread.sleep(5000);
+
         driver.navigate().to("https://www.facebook.com");
-        Thread.sleep(2000);
         driver.navigate().refresh();
-        Thread.sleep(1000);
         driver.navigate().back();
         driver.quit();
 

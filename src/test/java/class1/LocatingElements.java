@@ -37,7 +37,7 @@ public class LocatingElements {
             System.out.println("the title is incorrect");
         }
 //        close
-        driver.quit();
+       // driver.quit();
 
 
 
