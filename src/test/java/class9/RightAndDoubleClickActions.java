@@ -1,0 +1,39 @@
+package class9;
+
+import Utils.CommonMethods;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
+public class RightAndDoubleClickActions extends CommonMethods {
+    public static void main(String[] args) {
+        String url = "http://demo.guru99.com/test/simple_context_menu.html";
+        String browser = "chrome";
+        openBrowserAndLaunchApplication(url, browser);
+
+       WebElement rightClickBtn= driver.findElement(By.xpath("//span[text()='right click me']"));
+
+       //actions
+        Actions action=new Actions(driver);
+        //perfom the right click
+        //right click is also called contex
+        action.contextClick(rightClickBtn).perform();
+
+        //find element which is edit option
+        WebElement editOpt=driver.findElement(By.xpath("//span[text()='Edit']"));
+        action.click(editOpt).perform();
+
+        //on clicking edit alert appers
+        //in order to handle the alert
+        Alert alert=driver.switchTo().alert();
+        alert.accept();
+
+        //find the element to double click
+        WebElement doubleClick=driver.findElement(By.xpath("//button[contains(text(),'Double-Click')]"));
+        action.doubleClick(doubleClick).perform();
+
+        Alert alert1=driver.switchTo().alert();
+        alert1.accept();
+    }
+}
